@@ -305,7 +305,8 @@ var AngularJs;
                 var stateChangeStartOn;
                 var previousUri;
                 var telemetryInitializer = function (envelope) {
-                    console.log('envelope', envelope);
+                    if (applicationInsightsService.config.enableDebug)
+                        console.log('envelope', envelope);
                     envelope.tags["ai.operation.name"] = getSPAName(applicationInsightsService.config, $location);
                     if (envelope.baseType == 'PageviewData') {
                         var query = $location.search();
